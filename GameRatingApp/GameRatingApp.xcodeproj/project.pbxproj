@@ -10,9 +10,14 @@
 		08101152294B7507001AFA5E /* AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101151294B7507001AFA5E /* AlertError.swift */; };
 		08101154294B751D001AFA5E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101153294B751D001AFA5E /* AlertManager.swift */; };
 		08101156294B753C001AFA5E /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101155294B753C001AFA5E /* UIApplication+Extension.swift */; };
+		08101158294B7E8C001AFA5E /* GameClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101157294B7E8C001AFA5E /* GameClient.swift */; };
+		0810115B294B7F68001AFA5E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0810115A294B7F68001AFA5E /* Alamofire */; };
+		0810115E294B9318001AFA5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0810115D294B9318001AFA5E /* Constants.swift */; };
+		08101166294B99CF001AFA5E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101165294B99CF001AFA5E /* GameModel.swift */; };
+		0810116B294B9C3F001AFA5E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0810116A294B9C3F001AFA5E /* Kingfisher */; };
 		0843FC84294506FB00A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC83294506FB00A4A57A /* AppDelegate.swift */; };
 		0843FC86294506FB00A4A57A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC85294506FB00A4A57A /* SceneDelegate.swift */; };
-		0843FC88294506FB00A4A57A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC87294506FB00A4A57A /* ViewController.swift */; };
+		0843FC88294506FB00A4A57A /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC87294506FB00A4A57A /* GamesViewController.swift */; };
 		0843FC8B294506FB00A4A57A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0843FC89294506FB00A4A57A /* Main.storyboard */; };
 		0843FC8E294506FB00A4A57A /* GameRatingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC8C294506FB00A4A57A /* GameRatingApp.xcdatamodeld */; };
 		0843FC90294506FC00A4A57A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0843FC8F294506FC00A4A57A /* Assets.xcassets */; };
@@ -43,10 +48,13 @@
 		08101151294B7507001AFA5E /* AlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertError.swift; sourceTree = "<group>"; };
 		08101153294B751D001AFA5E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		08101155294B753C001AFA5E /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		08101157294B7E8C001AFA5E /* GameClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameClient.swift; sourceTree = "<group>"; };
+		0810115D294B9318001AFA5E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		08101165294B99CF001AFA5E /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		0843FC80294506FB00A4A57A /* GameRatingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameRatingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0843FC83294506FB00A4A57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0843FC85294506FB00A4A57A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0843FC87294506FB00A4A57A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0843FC87294506FB00A4A57A /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		0843FC8A294506FB00A4A57A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0843FC8D294506FB00A4A57A /* GameRatingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameRatingApp.xcdatamodel; sourceTree = "<group>"; };
 		0843FC8F294506FC00A4A57A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0810116B294B9C3F001AFA5E /* Kingfisher in Frameworks */,
+				0810115B294B7F68001AFA5E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +114,7 @@
 		0810114D294B74A5001AFA5E /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				08101157294B7E8C001AFA5E /* GameClient.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -122,6 +133,76 @@
 			children = (
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0810115C294B92FA001AFA5E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0810115D294B9318001AFA5E /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		0810115F294B9923001AFA5E /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				08101164294B99C5001AFA5E /* Model */,
+				08101163294B99B6001AFA5E /* ViewModel */,
+				08101162294B99AE001AFA5E /* View */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		08101160294B9940001AFA5E /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		08101161294B994A001AFA5E /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		08101162294B99AE001AFA5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0843FC87294506FB00A4A57A /* GamesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08101163294B99B6001AFA5E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		08101164294B99C5001AFA5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08101165294B99CF001AFA5E /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08101167294B9A1E001AFA5E /* SubPages */ = {
+			isa = PBXGroup;
+			children = (
+				08101168294B9A2A001AFA5E /* GameDetail */,
+			);
+			path = SubPages;
+			sourceTree = "<group>";
+		};
+		08101168294B9A2A001AFA5E /* GameDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GameDetail;
 			sourceTree = "<group>";
 		};
 		0843FC77294506FB00A4A57A = {
@@ -147,10 +228,9 @@
 		0843FC82294506FB00A4A57A /* GameRatingApp */ = {
 			isa = PBXGroup;
 			children = (
-				0810114D294B74A5001AFA5E /* Service */,
-				0843FCB8294507A900A4A57A /* Features */,
 				0843FCB72945079F00A4A57A /* Core */,
-				0843FC87294506FB00A4A57A /* ViewController.swift */,
+				0843FCB8294507A900A4A57A /* Features */,
+				0810114D294B74A5001AFA5E /* Service */,
 				0843FC8C294506FB00A4A57A /* GameRatingApp.xcdatamodeld */,
 			);
 			path = GameRatingApp;
@@ -189,6 +269,7 @@
 		0843FCB72945079F00A4A57A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0810115C294B92FA001AFA5E /* Constants */,
 				0843FCB62945077900A4A57A /* App */,
 				0810114C294B747E001AFA5E /* Extensions */,
 				0810114B294B7472001AFA5E /* Managers */,
@@ -199,6 +280,10 @@
 		0843FCB8294507A900A4A57A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				08101167294B9A1E001AFA5E /* SubPages */,
+				08101161294B994A001AFA5E /* Notes */,
+				08101160294B9940001AFA5E /* Favorites */,
+				0810115F294B9923001AFA5E /* Games */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -219,6 +304,10 @@
 			dependencies = (
 			);
 			name = GameRatingApp;
+			packageProductDependencies = (
+				0810115A294B7F68001AFA5E /* Alamofire */,
+				0810116A294B9C3F001AFA5E /* Kingfisher */,
+			);
 			productName = GameRatingApp;
 			productReference = 0843FC80294506FB00A4A57A /* GameRatingApp.app */;
 			productType = "com.apple.product-type.application";
@@ -291,6 +380,10 @@
 				Base,
 			);
 			mainGroup = 0843FC77294506FB00A4A57A;
+			packageReferences = (
+				08101159294B7F68001AFA5E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				08101169294B9C3F001AFA5E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 0843FC81294506FB00A4A57A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -335,12 +428,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				08101152294B7507001AFA5E /* AlertError.swift in Sources */,
-				0843FC88294506FB00A4A57A /* ViewController.swift in Sources */,
+				0843FC88294506FB00A4A57A /* GamesViewController.swift in Sources */,
 				08101154294B751D001AFA5E /* AlertManager.swift in Sources */,
 				0843FC84294506FB00A4A57A /* AppDelegate.swift in Sources */,
+				08101158294B7E8C001AFA5E /* GameClient.swift in Sources */,
+				08101166294B99CF001AFA5E /* GameModel.swift in Sources */,
 				0843FC8E294506FB00A4A57A /* GameRatingApp.xcdatamodeld in Sources */,
 				0843FC86294506FB00A4A57A /* SceneDelegate.swift in Sources */,
 				08101156294B753C001AFA5E /* UIApplication+Extension.swift in Sources */,
+				0810115E294B9318001AFA5E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +784,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		08101159294B7F68001AFA5E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		08101169294B9C3F001AFA5E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0810115A294B7F68001AFA5E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08101159294B7F68001AFA5E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0810116A294B9C3F001AFA5E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08101169294B9C3F001AFA5E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0843FC8C294506FB00A4A57A /* GameRatingApp.xcdatamodeld */ = {

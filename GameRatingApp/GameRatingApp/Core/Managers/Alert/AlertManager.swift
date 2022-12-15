@@ -26,4 +26,5 @@ final class AlertManager: AlertShowable {
             UIApplication.topViewController()?.present(alert, animated: true)
         }
     }
+    
 }
