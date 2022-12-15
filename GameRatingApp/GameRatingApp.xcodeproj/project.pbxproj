@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08101152294B7507001AFA5E /* AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101151294B7507001AFA5E /* AlertError.swift */; };
+		08101154294B751D001AFA5E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101153294B751D001AFA5E /* AlertManager.swift */; };
+		08101156294B753C001AFA5E /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08101155294B753C001AFA5E /* UIApplication+Extension.swift */; };
 		0843FC84294506FB00A4A57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC83294506FB00A4A57A /* AppDelegate.swift */; };
 		0843FC86294506FB00A4A57A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC85294506FB00A4A57A /* SceneDelegate.swift */; };
 		0843FC88294506FB00A4A57A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843FC87294506FB00A4A57A /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08101151294B7507001AFA5E /* AlertError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertError.swift; sourceTree = "<group>"; };
+		08101153294B751D001AFA5E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		08101155294B753C001AFA5E /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		0843FC80294506FB00A4A57A /* GameRatingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameRatingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0843FC83294506FB00A4A57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0843FC85294506FB00A4A57A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0810114B294B7472001AFA5E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0810114F294B74C2001AFA5E /* CoreData */,
+				0810114E294B74B9001AFA5E /* Alert */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0810114C294B747E001AFA5E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08101155294B753C001AFA5E /* UIApplication+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0810114D294B74A5001AFA5E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0810114E294B74B9001AFA5E /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				08101151294B7507001AFA5E /* AlertError.swift */,
+				08101153294B751D001AFA5E /* AlertManager.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		0810114F294B74C2001AFA5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		0843FC77294506FB00A4A57A = {
 			isa = PBXGroup;
 			children = (
@@ -101,13 +147,10 @@
 		0843FC82294506FB00A4A57A /* GameRatingApp */ = {
 			isa = PBXGroup;
 			children = (
-				0843FC83294506FB00A4A57A /* AppDelegate.swift */,
-				0843FC85294506FB00A4A57A /* SceneDelegate.swift */,
+				0810114D294B74A5001AFA5E /* Service */,
+				0843FCB8294507A900A4A57A /* Features */,
+				0843FCB72945079F00A4A57A /* Core */,
 				0843FC87294506FB00A4A57A /* ViewController.swift */,
-				0843FC89294506FB00A4A57A /* Main.storyboard */,
-				0843FC8F294506FC00A4A57A /* Assets.xcassets */,
-				0843FC91294506FC00A4A57A /* LaunchScreen.storyboard */,
-				0843FC94294506FC00A4A57A /* Info.plist */,
 				0843FC8C294506FB00A4A57A /* GameRatingApp.xcdatamodeld */,
 			);
 			path = GameRatingApp;
@@ -128,6 +171,36 @@
 				0843FCA9294506FC00A4A57A /* GameRatingAppUITestsLaunchTests.swift */,
 			);
 			path = GameRatingAppUITests;
+			sourceTree = "<group>";
+		};
+		0843FCB62945077900A4A57A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0843FC83294506FB00A4A57A /* AppDelegate.swift */,
+				0843FC85294506FB00A4A57A /* SceneDelegate.swift */,
+				0843FC91294506FC00A4A57A /* LaunchScreen.storyboard */,
+				0843FC89294506FB00A4A57A /* Main.storyboard */,
+				0843FC8F294506FC00A4A57A /* Assets.xcassets */,
+				0843FC94294506FC00A4A57A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0843FCB72945079F00A4A57A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0843FCB62945077900A4A57A /* App */,
+				0810114C294B747E001AFA5E /* Extensions */,
+				0810114B294B7472001AFA5E /* Managers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0843FCB8294507A900A4A57A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +334,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08101152294B7507001AFA5E /* AlertError.swift in Sources */,
 				0843FC88294506FB00A4A57A /* ViewController.swift in Sources */,
+				08101154294B751D001AFA5E /* AlertManager.swift in Sources */,
 				0843FC84294506FB00A4A57A /* AppDelegate.swift in Sources */,
 				0843FC8E294506FB00A4A57A /* GameRatingApp.xcdatamodeld in Sources */,
 				0843FC86294506FB00A4A57A /* SceneDelegate.swift in Sources */,
+				08101156294B753C001AFA5E /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,8 +523,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,9 +532,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mustafacicek.GameRatingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -475,8 +554,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,9 +563,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mustafacicek.GameRatingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
