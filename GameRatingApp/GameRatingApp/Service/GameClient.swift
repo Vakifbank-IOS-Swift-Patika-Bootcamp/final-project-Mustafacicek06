@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-final class MovieDBClient {
+final class GameClient {
     static let BASE_URL = "https://api.rawg.io/api/"
     
     static func getAllGames(completion: @escaping ([GameModel]?, Error?) -> Void) {
