@@ -9,10 +9,14 @@ import UIKit
 
 final class GamesViewController: UIViewController {
 
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
     
-    private var allGames: [GameModel]?
-    
+
     private var viewModel: GamesViewModelProtocol = GamesViewModel()
     
     
@@ -21,15 +25,23 @@ final class GamesViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureDelegates()
         componentsRegister()
+        setComponentsLayout()
     }
     
     // MARK: Private functions
     
     private func configureDelegates() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
+
         viewModel.delegate = self
         viewModel.fetchGames()
+        
+    }
+    
+    private func setComponentsLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 350, height: 200)
+     
+        collectionView.collectionViewLayout = layout
     }
     
     private func componentsRegister() {
@@ -39,7 +51,8 @@ final class GamesViewController: UIViewController {
 
 extension GamesViewController: GamesViewModelDelegate {
     func gamesLoaded() {
-        collectionView.reloadData()
+        self.collectionView.reloadData()
+        print("cagirildi")
     }
     
     func gamesFailed(error: Error) {
@@ -62,8 +75,21 @@ extension GamesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCollectionViewCell.identifier, for: indexPath) as! GameCollectionViewCell
-        cell.configure(url: allGames?[indexPath.row].backgroundImage ?? "" , gameNameLabel: allGames?[indexPath.row].name ?? "", rate: allGames?[indexPath.row].rating ?? 0, releaseDate: allGames?[indexPath.row].released ?? "")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCollectionViewCell.identifier, for: indexPath) as? GameCollectionViewCell, let model = viewModel.getGame(at: indexPath.row) else {return UICollectionViewCell()}
+        
+        cell.configure(model: model)
+      
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        /*
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: CharacterDetailViewController.self)) as? CharacterDetailViewController else { return }
+        detailVC.selectedCharacter = allCharacters?[indexPath.row]
+                 self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+         */
+   
+    }
+    
+    
 }

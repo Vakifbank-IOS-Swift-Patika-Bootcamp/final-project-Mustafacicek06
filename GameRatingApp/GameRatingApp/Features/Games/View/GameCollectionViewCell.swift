@@ -25,19 +25,20 @@ class GameCollectionViewCell: UICollectionViewCell {
     }
     
 
-    public func configure(url imageURL: String , gameNameLabel: String, rate: Double, releaseDate: String){
+    public func configure(model: GameModel){
         setUIAttributes()
-        self.gameNameLabel.text = gameNameLabel
-        self.rateLabel.text = "\(rate)"
-        self.releaseDateLabel.text = releaseDate
-        self.imageURL = imageURL
-        guard let url = URL(string: imageURL) else { return }
+        self.gameNameLabel.text = model.name
+        self.rateLabel.text = "\(model.rating ?? 0)"
+        self.releaseDateLabel.text = model.released
+        self.imageURL = model.backgroundImage
+        guard let url = URL(string: imageURL ?? "") else { return }
         self.imageView.kf.setImage(with: url)
     }
     private func setUIAttributes() {
         self.layer.borderWidth = 3
         self.layer.borderColor = UIColor.gray.cgColor
         self.layer.cornerRadius = CGFloat(10)
+        
     }
     // if you using nib, recommended this
     static func nib() -> UINib {

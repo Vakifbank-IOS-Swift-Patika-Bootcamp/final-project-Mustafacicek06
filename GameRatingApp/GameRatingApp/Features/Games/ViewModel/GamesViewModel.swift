@@ -11,6 +11,7 @@ protocol GamesViewModelProtocol {
     var delegate: GamesViewModelDelegate? {get set}
     func fetchGames()
     func getGameCount() -> Int
+    func getGame(at index: Int) -> GameModel?
     
 }
 
@@ -38,5 +39,9 @@ final class GamesViewModel: GamesViewModelProtocol {
     
     func getGameCount() -> Int {
         games?.count ?? 0
+    }
+    
+    func getGame(at index: Int) -> GameModel? {
+        games?[index]
     }
 }
