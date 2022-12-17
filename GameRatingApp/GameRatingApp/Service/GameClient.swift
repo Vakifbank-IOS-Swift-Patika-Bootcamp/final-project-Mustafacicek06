@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 
-final class MovieDBClient {
+final class GameClient {
     static let BASE_URL = "https://api.rawg.io/api/"
     
     static func getAllGames(completion: @escaping ([GameModel]?, Error?) -> Void) {
@@ -19,12 +19,12 @@ final class MovieDBClient {
         }
     }
     
-    /*
-    static func getMovieDetail(movieId: Int, completion: @escaping (MovieDetailModel?, Error?) -> Void) {
-        let urlString = BASE_URL + "/movie/" + String(movieId) + "?" + "&api_key=" + Constants.API_KEY
-        handleResponse(urlString: urlString, responseType: MovieDetailModel.self, completion: completion)
+
+    static func getGameDetail(movieId: Int, completion: @escaping (GameDetailModel?, Error?) -> Void) {
+        let urlString = BASE_URL + "games/" + String(movieId) + "?" + "&api_key=" + Constants.API_KEY
+        handleResponse(urlString: urlString, responseType: GameDetailModel.self, completion: completion)
     }
-    */
+  
     static private func handleResponse<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (T?, Error?) -> Void) {
         AF.request(urlString).response { response in
             guard let data = response.value else {
