@@ -13,11 +13,12 @@ final class GamesViewController: UIViewController {
     
     private var allGames: [GameModel]?
     
+    private var viewModel: GamesViewModelProtocol = GamesViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getAllGames()
         configureDelegates()
         componentsRegister()
     }
@@ -27,24 +28,25 @@ final class GamesViewController: UIViewController {
     private func configureDelegates() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        viewModel.delegate = self
+        viewModel.fetchGames()
     }
     
     private func componentsRegister() {
         collectionView.register(GameCollectionViewCell.nib() , forCellWithReuseIdentifier: GameCollectionViewCell.identifier)
     }
-    
-    private func getAllGames() {
-        GameClient.getAllGames { games, error in
-            if let games = games {
-                self.allGames = games
-                self.collectionView.reloadData()
-            }
-            else {
-                AlertManager.shared.showAlert(with: .wrongInput, localizeDescription: "Error", title: "Error")
-            }
-        }
-    }
+}
 
+extension GamesViewController: GamesViewModelDelegate {
+    func gamesLoaded() {
+        collectionView.reloadData()
+    }
+    
+    func gamesFailed(error: Error) {
+        AlertManager.shared.showAlert(with: .wrongInput, localizeDescription: "Error.", title: "Error")
+    }
+    
+    
 }
 
 extension GamesViewController: UICollectionViewDelegate {
@@ -56,7 +58,7 @@ extension GamesViewController: UICollectionViewDelegate {
 
 extension GamesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allGames?.count ?? 0
+        return viewModel.getGameCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -85,7 +85,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SRb-M5-RIg"/>
                     <connections>
-                        <outlet property="gameCollectionView" destination="wgn-tc-ZdY" id="317-10-Wsw"/>
+                        <outlet property="collectionView" destination="wgn-tc-ZdY" id="nsv-XL-BAF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

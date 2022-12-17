@@ -16,7 +16,7 @@ class GameCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var releaseDateLabel: UILabel!
     
     
-    static let identifier = "CharacterCollectionViewCell"
+    static let identifier = "GameCollectionViewCell"
     private var imageURL: String?
     
     override func awakeFromNib() {
