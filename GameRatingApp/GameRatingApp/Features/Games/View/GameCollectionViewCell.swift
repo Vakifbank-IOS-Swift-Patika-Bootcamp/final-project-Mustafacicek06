@@ -26,6 +26,7 @@ class GameCollectionViewCell: UICollectionViewCell {
     
 
     public func configure(model: GameModel){
+        
         setUIAttributes()
         self.gameNameLabel.text = model.name
         self.rateLabel.text = "\(model.rating ?? 0)"
