@@ -31,10 +31,8 @@ final class GamesViewController: UIViewController {
     // MARK: Private functions
     
     private func configureDelegates() {
-
         viewModel.delegate = self
         viewModel.fetchGames()
-        
     }
     
     private func setComponentsLayout() {
@@ -52,7 +50,6 @@ final class GamesViewController: UIViewController {
 extension GamesViewController: GamesViewModelDelegate {
     func gamesLoaded() {
         self.collectionView.reloadData()
-        print("cagirildi")
     }
     
     func gamesFailed(error: Error) {
