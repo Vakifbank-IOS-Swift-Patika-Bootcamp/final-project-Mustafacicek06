@@ -156,7 +156,6 @@
 			children = (
 				08101164294B99C5001AFA5E /* Model */,
 				08101163294B99B6001AFA5E /* ViewModel */,
-				081FAD73294DAA3400FF02A6 /* ViewController */,
 				08101162294B99AE001AFA5E /* View */,
 			);
 			path = Games;
@@ -179,8 +178,8 @@
 		08101162294B99AE001AFA5E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				08622D21294BD1050018CECE /* GameCollectionViewCell.swift */,
-				08622D22294BD1050018CECE /* GameCollectionViewCell.xib */,
+				081FAD7C294DDD1400FF02A6 /* Components */,
+				0843FC87294506FB00A4A57A /* GamesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,14 +219,6 @@
 			path = GameDetail;
 			sourceTree = "<group>";
 		};
-		081FAD73294DAA3400FF02A6 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0843FC87294506FB00A4A57A /* GamesViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		081FAD76294DADBB00FF02A6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +246,15 @@
 				081FAD7A294DADD300FF02A6 /* GameDetailModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		081FAD7C294DDD1400FF02A6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				08622D21294BD1050018CECE /* GameCollectionViewCell.swift */,
+				08622D22294BD1050018CECE /* GameCollectionViewCell.xib */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		0843FC77294506FB00A4A57A = {
