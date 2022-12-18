@@ -12,7 +12,7 @@ protocol GamesViewModelProtocol {
     func fetchGames()
     func getGameCount() -> Int
     func getGame(at index: Int) -> GameModel?
-    
+    func getGameID(at index: Int) -> Int?
 }
 
 protocol GamesViewModelDelegate: AnyObject {
@@ -43,5 +43,9 @@ final class GamesViewModel: GamesViewModelProtocol {
     
     func getGame(at index: Int) -> GameModel? {
         games?[index]
+    }
+    
+    func getGameID(at index: Int) -> Int? {
+        games?[index].id ?? 0
     }
 }

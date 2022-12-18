@@ -21,7 +21,8 @@ final class GameClient {
     
 
     static func getGameDetail(movieId: Int, completion: @escaping (GameDetail?, Error?) -> Void) {
-        let urlString = BASE_URL + "games/" + String(movieId) + "?" + "&api_key=" + Constants.API_KEY
+        let urlString = BASE_URL + "games/" + String(movieId) + "?" + "key=" + Constants.API_KEY
+        print(urlString)
         handleResponse(urlString: urlString, responseType: GameDetail.self, completion: completion)
     }
   

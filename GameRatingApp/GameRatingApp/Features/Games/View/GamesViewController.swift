@@ -60,10 +60,12 @@ extension GamesViewController: GamesViewModelDelegate {
 }
 
 extension GamesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        
-    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+       
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: GameDetailViewController.self)) as? GameDetailViewController else { return }
+        detailVC.selectedGameIndex = viewModel.getGameID(at: indexPath.row)
+                 self.navigationController?.pushViewController(detailVC, animated: true)
+        }
 }
 
 extension GamesViewController: UICollectionViewDataSource {
@@ -78,15 +80,10 @@ extension GamesViewController: UICollectionViewDataSource {
       
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        /*
-        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: CharacterDetailViewController.self)) as? CharacterDetailViewController else { return }
-        detailVC.selectedCharacter = allCharacters?[indexPath.row]
-                 self.navigationController?.pushViewController(detailVC, animated: true)
-        }
-         */
    
-    }
+        
+   
+    
     
     
 }
