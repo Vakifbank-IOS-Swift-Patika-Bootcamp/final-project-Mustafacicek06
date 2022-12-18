@@ -355,6 +355,8 @@
 		08F883C0294F46960064C7A7 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				08F883D0294F81D40064C7A7 /* ViewModel */,
+				08F883CF294F81D00064C7A7 /* View */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -383,6 +385,20 @@
 				08F883C7294F495D0064C7A7 /* GameDetailCollectionViewCell.xib */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		08F883CF294F81D00064C7A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08F883D0294F81D40064C7A7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
