@@ -63,7 +63,7 @@ extension GamesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
        
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: GameDetailViewController.self)) as? GameDetailViewController else { return }
-        detailVC.selectedGameIndex = viewModel.getGameID(at: indexPath.row)
+        detailVC.selectedGameIndex = viewModel.getGameID(at: indexPath.row) 
                  self.navigationController?.pushViewController(detailVC, animated: true)
         }
 }

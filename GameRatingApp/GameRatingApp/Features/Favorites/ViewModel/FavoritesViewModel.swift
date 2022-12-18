@@ -13,7 +13,7 @@ protocol FavoritesViewModelProtocol {
     func getGamesFromDB()
     func getGameCount() -> Int
     func getGame(at index: Int) -> Favorites?
-    func getGameID(at index: Int) -> Int16? 
+    func getGameID(at index: Int) -> Int?
 }
 
 protocol FaveoritesViewModelDelegate: AnyObject {
@@ -41,7 +41,8 @@ final class FavoritesViewModel: FavoritesViewModelProtocol{
         favoriteGames?[index]
     }
     
-    func getGameID(at index: Int) -> Int16? {
-        favoriteGames?[index].id ?? 0
+    func getGameID(at index: Int) -> Int? {
+        print( favoriteGames?[index].id ?? 0)
+        return Int(favoriteGames?[index].id ?? 0)
     }
 }

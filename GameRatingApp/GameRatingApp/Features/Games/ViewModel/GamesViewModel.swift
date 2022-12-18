@@ -46,6 +46,7 @@ final class GamesViewModel: GamesViewModelProtocol {
     }
     
     func getGameID(at index: Int) -> Int? {
-        games?[index].id ?? 0
+        print(index)
+        return games?[index].id ?? 0
     }
 }

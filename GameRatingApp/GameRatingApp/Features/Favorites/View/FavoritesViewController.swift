@@ -76,9 +76,9 @@ extension FavoritesViewController: FaveoritesViewModelDelegate {
 
 extension FavoritesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-       
+        print(indexPath.row)
         guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: GameDetailViewController.self)) as? GameDetailViewController else { return }
-        detailVC.selectedGameIndex = Int(viewModel.getGameID(at: indexPath.row) ?? 0)
+        detailVC.selectedGameIndex = viewModel.getGameID(at: indexPath.row)
                  self.navigationController?.pushViewController(detailVC, animated: true)
         }
     
