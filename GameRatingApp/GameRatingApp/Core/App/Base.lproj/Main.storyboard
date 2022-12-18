@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -292,17 +293,69 @@
                     <navigationItem key="navigationItem" id="CmG-Zz-70m">
                         <barButtonItem key="rightBarButtonItem" title="Add Note" style="plain" id="8Oa-i7-63v">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Eg-Wh-vtg">
-                                <rect key="frame" x="-37" y="-17" width="87" height="33"/>
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="GNr-s9-uSg" id="Eqn-2j-IIV"/>
+                        <segue destination="GC0-lB-IpV" kind="presentation" identifier="toAddNote" id="XgO-gi-hKG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxJ-XF-BcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1487.7862595419847" y="586.61971830985919"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="cBl-Yw-A9F">
+            <objects>
+                <viewController storyboardIdentifier="AddNoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GC0-lB-IpV" customClass="AddNoteViewController" customModule="GameRatingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XFx-G3-CRH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxk-lh-AgJ">
+                                <rect key="frame" x="0.0" y="140" width="393" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="sq4-fV-p26"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Select Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-iq-p8x">
+                                <rect key="frame" x="100" y="109" width="193" height="23"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <color key="highlightedColor" systemColor="linkColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="utN-la-bX5">
+                                <rect key="frame" x="16" y="349" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sFr-at-bxt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Hxk-lh-AgJ" secondAttribute="trailing" id="52v-s0-qfE"/>
+                            <constraint firstItem="utN-la-bX5" firstAttribute="leading" secondItem="XFx-G3-CRH" secondAttribute="leadingMargin" id="C8A-1A-0c7"/>
+                            <constraint firstItem="Hxk-lh-AgJ" firstAttribute="top" secondItem="aZd-iq-p8x" secondAttribute="bottom" constant="8" symbolic="YES" id="DB1-e8-7No"/>
+                            <constraint firstItem="aZd-iq-p8x" firstAttribute="top" secondItem="XFx-G3-CRH" secondAttribute="top" constant="109" id="H4S-qf-cbi"/>
+                            <constraint firstItem="aZd-iq-p8x" firstAttribute="centerX" secondItem="Hxk-lh-AgJ" secondAttribute="centerX" id="bK0-DG-7k1"/>
+                            <constraint firstItem="Hxk-lh-AgJ" firstAttribute="centerX" secondItem="utN-la-bX5" secondAttribute="centerX" id="dtP-Zj-cFQ"/>
+                            <constraint firstItem="aZd-iq-p8x" firstAttribute="leading" secondItem="sFr-at-bxt" secondAttribute="leading" constant="100" id="if4-YH-Et2"/>
+                            <constraint firstItem="utN-la-bX5" firstAttribute="top" secondItem="Hxk-lh-AgJ" secondAttribute="bottom" constant="24" id="kFW-89-TPe"/>
+                            <constraint firstItem="sFr-at-bxt" firstAttribute="bottom" secondItem="utN-la-bX5" secondAttribute="bottom" constant="400" id="pxS-7G-dGo"/>
+                            <constraint firstItem="Hxk-lh-AgJ" firstAttribute="leading" secondItem="XFx-G3-CRH" secondAttribute="leading" id="wZj-GO-9N0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZK-xd-jXc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487.7862595419847" y="1304.9295774647887"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="vWO-Dr-cXr">
@@ -347,6 +400,9 @@
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
         <image name="star.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

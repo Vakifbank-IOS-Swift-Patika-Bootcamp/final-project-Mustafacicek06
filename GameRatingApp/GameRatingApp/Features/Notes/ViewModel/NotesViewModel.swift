@@ -12,6 +12,7 @@ protocol NotesViewModelProtocol {
     var delegate: NotesViewModelDelegate? {get set}
     func getNotesFromDB()
     func getGameCount() -> Int
+    func getGame(at index: Int) -> Notes?
 }
 
 protocol NotesViewModelDelegate: AnyObject {
@@ -34,6 +35,8 @@ class NotesViewModel: NotesViewModelProtocol  {
         gameNotes?.count ?? 0
     }
     
-    
+    func getGame(at index: Int) -> Notes? {
+        gameNotes?[index]
+    }
     
 }
