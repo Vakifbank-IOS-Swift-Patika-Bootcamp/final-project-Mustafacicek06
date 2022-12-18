@@ -50,17 +50,18 @@ final class CoreDataManager {
     }
     
     
-    func saveNote(id: Int64, imageURL: String, gameName: String, note: String) -> Notes? {
+    func saveNote(game: GameModel, gameNote: String?) -> Notes? {
         let entity = NSEntityDescription.entity(forEntityName: "Notes", in: managedContext)!
         let note = NSManagedObject(entity: entity, insertInto: managedContext)
-        note.setValue( id,forKeyPath: CoreDataKeys.id.rawValue)
-        note.setValue(imageURL, forKeyPath: CoreDataKeys.imageURL.rawValue)
-        note.setValue(gameName, forKeyPath: CoreDataKeys.gameName.rawValue)
-        note.setValue(note, forKeyPath: CoreDataKeys.note.rawValue)
+        note.setValue( game.id,forKeyPath: CoreDataKeys.id.rawValue)
+        note.setValue(game.backgroundImage, forKeyPath: CoreDataKeys.imageURL.rawValue)
+        note.setValue(game.name, forKeyPath: CoreDataKeys.gameName.rawValue)
+        note.setValue(gameNote, forKeyPath: CoreDataKeys.note.rawValue)
        
         
         do {
             try managedContext.save()
+            AlertManager.shared.showAlert(with: nil, localizeDescription: "Game saved successfully :)", title: "Saved Success")
             return note as? Notes
             
         } catch let error as NSError {

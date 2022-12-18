@@ -336,16 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				08DE3209294FB16E00A3663E /* View */,
-				08DE3208294FB16900A3663E /* ViewModel */,
 			);
 			path = AddNote;
-			sourceTree = "<group>";
-		};
-		08DE3208294FB16900A3663E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		08DE3209294FB16E00A3663E /* View */ = {

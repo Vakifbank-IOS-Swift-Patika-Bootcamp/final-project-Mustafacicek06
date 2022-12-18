@@ -31,7 +31,8 @@ class NotesViewController: UIViewController{
     }
     
     @objc func addNewNote() {
-        present(AddNoteViewController(), animated: true)
+        
+        performSegue(withIdentifier: "toAddNote", sender: nil)
     }
     
     
