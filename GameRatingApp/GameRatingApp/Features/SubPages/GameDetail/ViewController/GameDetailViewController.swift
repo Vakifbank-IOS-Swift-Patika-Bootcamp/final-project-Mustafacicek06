@@ -47,6 +47,7 @@ final class GameDetailViewController: UIViewController {
     {
         isFavorite = !isFavorite
         favoriteButtonItem?.image = favoriteImage
+        viewModel.addFavorite()
     }
     private func configure() {
         self.game = viewModel.getGame()

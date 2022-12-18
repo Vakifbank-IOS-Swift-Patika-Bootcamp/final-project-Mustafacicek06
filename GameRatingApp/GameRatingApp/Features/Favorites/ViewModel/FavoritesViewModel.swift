@@ -10,7 +10,10 @@ import Foundation
 
 protocol FavoritesViewModelProtocol {
     var delegate: FaveoritesViewModelDelegate? {get set}
-
+    func getGamesFromDB()
+    func getGameCount() -> Int
+    func getGame(at index: Int) -> Favorites?
+    func getGameID(at index: Int) -> Int16? 
 }
 
 protocol FaveoritesViewModelDelegate: AnyObject {
@@ -20,6 +23,25 @@ protocol FaveoritesViewModelDelegate: AnyObject {
     func gamesFailed(error: Error)
 }
 
-class FavoritesViewModel: <#super class#> {
-    <#code#>
+final class FavoritesViewModel: FavoritesViewModelProtocol{
+    weak var delegate: FaveoritesViewModelDelegate?
+    
+    private var favoriteGames: [Favorites]?
+    
+    func getGamesFromDB() {
+        favoriteGames = CoreDataManager.shared.getGames()
+        print(favoriteGames?.count ?? 0)
+    }
+    
+    func getGameCount() -> Int {
+        favoriteGames?.count ?? 0
+    }
+    
+    func getGame(at index: Int) -> Favorites? {
+        favoriteGames?[index]
+    }
+    
+    func getGameID(at index: Int) -> Int16? {
+        favoriteGames?[index].id ?? 0
+    }
 }

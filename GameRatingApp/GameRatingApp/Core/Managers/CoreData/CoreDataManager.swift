@@ -29,7 +29,7 @@ final class CoreDataManager {
     }
     
     func saveGame(id: Int16, imageURL: String, gameName: String, rating: Double,released: String) -> Favorites? {
-        let entity = NSEntityDescription.entity(forEntityName: "EpisodeNote", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: managedContext)!
         let game = NSManagedObject(entity: entity, insertInto: managedContext)
         game.setValue( id,forKeyPath: CoreDataKeys.id.rawValue)
         game.setValue(imageURL, forKeyPath: CoreDataKeys.imageURL.rawValue)

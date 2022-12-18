@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GameDetailCollectionViewCell" customModule="GameRatingApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameDetailCollectionViewCell" id="gTV-IL-0wX" customClass="GameDetailCollectionViewCell" customModule="GameRatingApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -61,6 +61,12 @@
                 <constraint firstItem="Vvn-E3-Fbv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="z8W-yf-xL1"/>
             </constraints>
             <size key="customSize" width="272" height="113"/>
+            <connections>
+                <outlet property="gameNameLabel" destination="tbl-eK-TQs" id="Pxn-Ba-Aho"/>
+                <outlet property="imageView" destination="Vvn-E3-Fbv" id="uWR-vZ-ydZ"/>
+                <outlet property="rateLabel" destination="Q4U-ef-PMh" id="bd4-p6-PqV"/>
+                <outlet property="releaseDateLabel" destination="jAm-6z-EFi" id="BCf-2m-5Pt"/>
+            </connections>
             <point key="canvasLocation" x="312.97709923664121" y="44.366197183098592"/>
         </collectionViewCell>
     </objects>

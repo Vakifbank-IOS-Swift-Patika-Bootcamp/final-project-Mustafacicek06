@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="-625.19083969465646" y="1338.7323943661972"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="Opk-wq-sMJ">
             <objects>
-                <viewController id="DQ8-X4-Wgj" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FavoritesViewController" storyboardIdentifier="FavoritesViewController" id="DQ8-X4-Wgj" customClass="FavoritesViewController" customModule="GameRatingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BZw-o0-6tK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -242,6 +242,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BmX-GR-uJn"/>
+                    <connections>
+                        <outlet property="collectionView" destination="bmb-P6-QAH" id="XiD-BR-Wcn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHU-tp-yLN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

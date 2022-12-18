@@ -37,7 +37,7 @@ final class GamesViewController: UIViewController {
     
     private func setComponentsLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 350, height: 200)
+        layout.itemSize = CGSize(width: 350, height: 150)
      
         collectionView.collectionViewLayout = layout
     }

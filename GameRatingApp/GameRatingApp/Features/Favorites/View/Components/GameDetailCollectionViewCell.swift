@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameDetailCollectionViewCell: UICollectionViewCell {
+final class GameDetailCollectionViewCell: UICollectionViewCell {
 
    
     @IBOutlet private var imageView: UIImageView!
@@ -16,7 +16,7 @@ class GameDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var releaseDateLabel: UILabel!
     
     
-    static let identifier = "GameCollectionViewCell"
+    static let identifier = "GameDetailCollectionViewCell"
     private var imageURL: String?
     
     override func awakeFromNib() {
@@ -28,7 +28,7 @@ class GameDetailCollectionViewCell: UICollectionViewCell {
     public func configure(model: Favorites){
         
         setUIAttributes()
-        self.gameNameLabel.text = model.gameName
+       self.gameNameLabel.text = model.gameName ?? ""
         self.rateLabel.text = "\(model.rating ?? 0)"
         self.releaseDateLabel.text = model.released
         self.imageURL = model.imageURL

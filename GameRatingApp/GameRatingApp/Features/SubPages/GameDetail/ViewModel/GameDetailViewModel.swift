@@ -42,6 +42,11 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
        
     }
     
+    func addFavorite() {
+        guard let selectedGame = selectedGame else { return }
+        CoreDataManager.shared.saveGame(id: Int16(selectedGame.id ?? 0), imageURL: selectedGame.backgroundImage ?? "" , gameName: selectedGame.name ?? "", rating: selectedGame.rating ?? 0 , released: selectedGame.released ?? "")
+    }
+    
     func getGame() -> GameDetail? {
         selectedGame
     }
