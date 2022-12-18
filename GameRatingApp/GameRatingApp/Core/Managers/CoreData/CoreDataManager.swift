@@ -10,10 +10,10 @@ import UIKit
 
 
 enum CoreDataKeys: String {
-    case episode
-    case season
-    case episodeTitle
-    case note
+    case released
+    case imageURL
+    case gameName
+    case rating
     case id
 }
 
@@ -28,18 +28,18 @@ final class CoreDataManager {
         
     }
     
-    func saveEpisode(episode: Int8, season: Int8, episodeTitle: String, note: Int8) -> EpisodeNote? {
+    func saveGame(id: Int16, imageURL: String, gameName: String, rating: Double,released: String) -> Favorites? {
         let entity = NSEntityDescription.entity(forEntityName: "EpisodeNote", in: managedContext)!
-        let episodeNote = NSManagedObject(entity: entity, insertInto: managedContext)
-        episodeNote.setValue( episode,forKeyPath: CoreDataKeys.episode.rawValue)
-        episodeNote.setValue(season, forKeyPath: CoreDataKeys.season.rawValue)
-        episodeNote.setValue(episodeTitle, forKeyPath: CoreDataKeys.episodeTitle.rawValue)
-        episodeNote.setValue(note, forKeyPath: CoreDataKeys.note.rawValue)
-        episodeNote.setValue(UUID(), forKeyPath: CoreDataKeys.id.rawValue)
+        let game = NSManagedObject(entity: entity, insertInto: managedContext)
+        game.setValue( id,forKeyPath: CoreDataKeys.id.rawValue)
+        game.setValue(imageURL, forKeyPath: CoreDataKeys.imageURL.rawValue)
+        game.setValue(gameName, forKeyPath: CoreDataKeys.gameName.rawValue)
+        game.setValue(rating, forKeyPath: CoreDataKeys.rating.rawValue)
+        game.setValue(released, forKeyPath: CoreDataKeys.released.rawValue)
         
         do {
             try managedContext.save()
-            return episodeNote as? EpisodeNote
+            return game as? Favorites
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -48,12 +48,12 @@ final class CoreDataManager {
         return nil
     }
     
-    func getEpisodes() -> [EpisodeNote] {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "EpisodeNote")
+    func getGames() -> [Favorites] {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorites")
         
         do {
             let episodes = try managedContext.fetch(fetchRequest)
-            return episodes as! [EpisodeNote]
+            return episodes as! [Favorites]
             
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -61,16 +61,16 @@ final class CoreDataManager {
         return []
     }
     
-    func deleteEpisode(deleteItemID: UUID) {
-        getEpisodes().forEach { episode in
-            print("\(episode.id) delete id: \(deleteItemID)")
-            if episode.id == deleteItemID {
-                managedContext.delete(episode)
+    func deleteEpisode(deleteItemID: Int16) {
+        getGames().forEach { game in
+            print("\(game.id) delete id: \(game)")
+            if game.id == deleteItemID {
+                managedContext.delete(game)
                 try! managedContext.save()
             }
         }
     }
-     
+     /*
     func updateEpisode(selectedEpisode: EpisodeNote, season: String, episodeNumber: String, episodeTitle: String, note: String ) {
         getEpisodes().forEach { episode in
             if episode.id == selectedEpisode.id {
@@ -85,5 +85,6 @@ final class CoreDataManager {
             }
         }
     }
+      */
     
 }
