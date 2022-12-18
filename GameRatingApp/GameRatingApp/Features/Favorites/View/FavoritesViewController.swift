@@ -99,6 +99,4 @@ extension FavoritesViewController: UICollectionViewDataSource {
     }
     
     
-    
-    
 }

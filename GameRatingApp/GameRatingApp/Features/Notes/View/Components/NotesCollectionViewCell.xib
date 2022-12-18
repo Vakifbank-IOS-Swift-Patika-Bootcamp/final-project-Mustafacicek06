@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NotesCollectionViewCell" customModule="GameRatingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="V7w-LD-qrh">
+                        <rect key="frame" x="0.0" y="0.0" width="113" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="113" id="JMv-hu-uLi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYC-Sp-pCW">
+                        <rect key="frame" x="129" y="13" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q3L-qs-tXZ">
+                        <rect key="frame" x="121" y="39" width="174" height="76"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="V7w-LD-qrh" secondAttribute="bottom" id="BVv-m1-pvg"/>
+                <constraint firstItem="V7w-LD-qrh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HuQ-fp-8cU"/>
+                <constraint firstItem="V7w-LD-qrh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IWW-cN-ufS"/>
+                <constraint firstItem="GYC-Sp-pCW" firstAttribute="leading" secondItem="V7w-LD-qrh" secondAttribute="trailing" constant="16" id="aTe-DQ-1OH"/>
+                <constraint firstItem="q3L-qs-tXZ" firstAttribute="top" secondItem="GYC-Sp-pCW" secondAttribute="bottom" constant="5" id="dc1-w4-XFQ"/>
+                <constraint firstItem="GYC-Sp-pCW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="13" id="qkp-hH-A2F"/>
+                <constraint firstAttribute="trailing" secondItem="q3L-qs-tXZ" secondAttribute="trailing" constant="5" id="svW-XZ-MhT"/>
+                <constraint firstAttribute="bottom" secondItem="q3L-qs-tXZ" secondAttribute="bottom" constant="5" id="utK-2i-cBQ"/>
+                <constraint firstItem="q3L-qs-tXZ" firstAttribute="leading" secondItem="V7w-LD-qrh" secondAttribute="trailing" constant="8" symbolic="YES" id="xrY-k2-fpb"/>
+            </constraints>
+            <connections>
+                <outlet property="gameNameLabel" destination="GYC-Sp-pCW" id="qFU-bR-Hey"/>
+                <outlet property="imageView" destination="V7w-LD-qrh" id="Kk4-FV-3iy"/>
+                <outlet property="noteLabel" destination="q3L-qs-tXZ" id="30B-JQ-AeQ"/>
+            </connections>
+            <point key="canvasLocation" x="51.908396946564885" y="20.422535211267608"/>
+        </collectionViewCell>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w7D-UU-5ky">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="52" y="-75"/>
+        </label>
+    </objects>
+    <resources>
+        <image name="plus" width="128" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -15,6 +15,7 @@ enum CoreDataKeys: String {
     case gameName
     case rating
     case id
+    case note
 }
 
 final class CoreDataManager {
@@ -28,7 +29,7 @@ final class CoreDataManager {
         
     }
     
-    func saveGame(id: Int16, imageURL: String, gameName: String, rating: Double,released: String) -> Favorites? {
+    func saveGame(id: Int64, imageURL: String, gameName: String, rating: Double,released: String) -> Favorites? {
         let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: managedContext)!
         let game = NSManagedObject(entity: entity, insertInto: managedContext)
         game.setValue( id,forKeyPath: CoreDataKeys.id.rawValue)
@@ -48,12 +49,46 @@ final class CoreDataManager {
         return nil
     }
     
+    
+    func saveNote(id: Int64, imageURL: String, gameName: String, note: String) -> Notes? {
+        let entity = NSEntityDescription.entity(forEntityName: "Notes", in: managedContext)!
+        let note = NSManagedObject(entity: entity, insertInto: managedContext)
+        note.setValue( id,forKeyPath: CoreDataKeys.id.rawValue)
+        note.setValue(imageURL, forKeyPath: CoreDataKeys.imageURL.rawValue)
+        note.setValue(gameName, forKeyPath: CoreDataKeys.gameName.rawValue)
+        note.setValue(note, forKeyPath: CoreDataKeys.note.rawValue)
+       
+        
+        do {
+            try managedContext.save()
+            return note as? Notes
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        return nil
+    }
+    
     func getGames() -> [Favorites] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorites")
         
         do {
             let episodes = try managedContext.fetch(fetchRequest)
             return episodes as! [Favorites]
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return []
+    }
+    
+    func getNotes() -> [Notes] {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Notes")
+        
+        do {
+            let episodes = try managedContext.fetch(fetchRequest)
+            return episodes as! [Notes]
             
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")

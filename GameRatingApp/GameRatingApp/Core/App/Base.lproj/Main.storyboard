@@ -250,21 +250,59 @@
             </objects>
             <point key="canvasLocation" x="365.64885496183206" y="586.61971830985919"/>
         </scene>
-        <!--View Controller-->
+        <!--Notes View Controller-->
         <scene sceneID="4ip-WL-125">
             <objects>
-                <viewController id="opy-rV-9Zj" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NotesViewController" storyboardIdentifier="NotesViewController" id="opy-rV-9Zj" customClass="NotesViewController" customModule="GameRatingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XSd-Sz-T0s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GNr-s9-uSg">
+                                <rect key="frame" x="10" y="108" width="373" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kfy-ZY-7mW">
+                                    <size key="itemSize" width="361" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wVz-yK-3CM">
+                                        <rect key="frame" x="6" y="0.0" width="361" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lvn-X0-oWS">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="361" height="120"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4ae-RP-ZNu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GNr-s9-uSg" firstAttribute="leading" secondItem="4ae-RP-ZNu" secondAttribute="leading" constant="10" id="1Jd-5d-VbU"/>
+                            <constraint firstItem="GNr-s9-uSg" firstAttribute="top" secondItem="4ae-RP-ZNu" secondAttribute="top" constant="5" id="eSm-pk-VFC"/>
+                            <constraint firstItem="4ae-RP-ZNu" firstAttribute="trailing" secondItem="GNr-s9-uSg" secondAttribute="trailing" constant="10" id="eX8-01-6BZ"/>
+                            <constraint firstItem="GNr-s9-uSg" firstAttribute="bottom" secondItem="4ae-RP-ZNu" secondAttribute="bottom" constant="5" id="gu6-5I-YvT"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CmG-Zz-70m"/>
+                    <navigationItem key="navigationItem" id="CmG-Zz-70m">
+                        <barButtonItem key="rightBarButtonItem" title="Add Note" style="plain" id="8Oa-i7-63v">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Eg-Wh-vtg">
+                                <rect key="frame" x="-37" y="-17" width="87" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxJ-XF-BcR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488" y="587"/>
+            <point key="canvasLocation" x="1487.7862595419847" y="586.61971830985919"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="vWO-Dr-cXr">
